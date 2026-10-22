@@ -4,7 +4,7 @@ A microservice for managing product catalog data in an e-commerce platform, incl
 
 The Catalog Service exposes RESTful APIs for managing catalog information and communicates with other microservices through **RabbitMQ**. When relevant product data changes, the service publishes messages to the message broker, allowing downstream services, such as the Search Service, to react to those changes asynchronously. 
 <br/>
-
+<br/>
 
 
 ## ✨ Features
@@ -18,11 +18,13 @@ The Catalog Service exposes RESTful APIs for managing catalog information and co
 - 🛡️ **Domain Rules:** Enforce business constraints, including valid product prices and non-negative stock quantities.
 - 🧪 **Unit Testing:** Test application handlers across product, brand, and category operations.
 <br/>
+<br/>
 
 
 ## 📚 API Documentation
 
 The service provides interactive API documentation through Swagger UI, allowing developers to explore endpoints and test requests.
+<br/>
 
 ![Swagger UI - Catalog Service API](docs/images/swagger-api.png)
 <br/>
@@ -32,6 +34,7 @@ The service provides interactive API documentation through Swagger UI, allowing 
 
 The Catalog Service follows a layered architecture that separates API handling, application logic, domain rules, and infrastructure concerns.
 <br/>
+
 ### 🔄 Product Update Workflow
 
 When a product update request is received, the service processes the operation, persists the changes to the database, and publishes a message through RabbitMQ so other microservices can consume the event.
@@ -39,6 +42,7 @@ When a product update request is received, the service processes the operation, 
 ![Product Update Workflow - API, Database, and RabbitMQ](docs/images/diagram.png)
 
 This asynchronous communication helps decouple the Catalog Service from downstream consumers. For example, the Search Service can consume product change events to keep its search index synchronized with the catalog.
+<br/>
 <br/>
 
 ## 🗃️ Project Structure
@@ -93,6 +97,7 @@ tests/
 | `Infrastructure` | Implements persistence, repositories, Entity Framework Core configurations, and database migrations. |
 | `Catalog.UnitTests` | Contains unit tests for application handlers and catalog operations. |
 <br/>
+
 ## 🧰 Technologies
 
 - 💻 C# / .NET
@@ -104,7 +109,7 @@ tests/
 <br/>
 
 -------------------
-<br/>
+
 ## 🚀 Getting Started
 
 ### ✅ Prerequisites
@@ -129,6 +134,7 @@ Review the configuration in:
 > 🔐 **Security note:** Avoid committing credentials, passwords, or other secrets to the repository.
 
 <br/>
+
 ### ▶️ Run the Application
 
 From the repository root, restore dependencies and build the solution:
