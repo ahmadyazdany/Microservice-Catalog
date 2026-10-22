@@ -2,7 +2,8 @@
 
 A microservice for managing product catalog data in an e-commerce platform, including products, brands, categories, pricing, stock, and product media.
 
-The Catalog Service exposes RESTful APIs for managing catalog information and communicates with other microservices through **RabbitMQ**. When relevant product data changes, the service publishes messages to the message broker, allowing downstream services, such as the Search Service, to react to those changes asynchronously.
+The Catalog Service exposes RESTful APIs for managing catalog information and communicates with other microservices through **RabbitMQ**. When relevant product data changes, the service publishes messages to the message broker, allowing downstream services, such as the Search Service, to react to those changes asynchronously. 
+<br/>
 
 
 
@@ -16,7 +17,7 @@ The Catalog Service exposes RESTful APIs for managing catalog information and co
 - 💾 **Data Persistence:** Store catalog data using Entity Framework Core and database migrations.
 - 🛡️ **Domain Rules:** Enforce business constraints, including valid product prices and non-negative stock quantities.
 - 🧪 **Unit Testing:** Test application handlers across product, brand, and category operations.
-
+<br/>
 
 
 ## 📚 API Documentation
@@ -24,13 +25,13 @@ The Catalog Service exposes RESTful APIs for managing catalog information and co
 The service provides interactive API documentation through Swagger UI, allowing developers to explore endpoints and test requests.
 
 ![Swagger UI - Catalog Service API](docs/images/swagger-api.png)
-
+<br/>
 
 
 ## 🏗️ Architecture and Workflow
 
 The Catalog Service follows a layered architecture that separates API handling, application logic, domain rules, and infrastructure concerns.
-
+<br/>
 ### 🔄 Product Update Workflow
 
 When a product update request is received, the service processes the operation, persists the changes to the database, and publishes a message through RabbitMQ so other microservices can consume the event.
@@ -38,7 +39,7 @@ When a product update request is received, the service processes the operation, 
 ![Product Update Workflow - API, Database, and RabbitMQ](docs/images/diagram.png)
 
 This asynchronous communication helps decouple the Catalog Service from downstream consumers. For example, the Search Service can consume product change events to keep its search index synchronized with the catalog.
-
+<br/>
 
 ## 🗃️ Project Structure
 
@@ -80,7 +81,7 @@ tests/
             ├── CategoryHandlers/
             └── ProductHandlers/
 ```
-
+<br/>
 
 ### 🧩 Project Responsibilities
 
@@ -91,7 +92,7 @@ tests/
 | `Domain` | Defines business entities, commands, DTOs, repository contracts, value objects, and domain rules. |
 | `Infrastructure` | Implements persistence, repositories, Entity Framework Core configurations, and database migrations. |
 | `Catalog.UnitTests` | Contains unit tests for application handlers and catalog operations. |
-
+<br/>
 ## 🧰 Technologies
 
 - 💻 C# / .NET
@@ -100,10 +101,10 @@ tests/
 - 🐇 RabbitMQ
 - 📖 Swagger / OpenAPI
 - 🧪 Unit Testing
-
+<br/>
 
 -------------------
-
+<br/>
 ## 🚀 Getting Started
 
 ### ✅ Prerequisites
@@ -113,7 +114,7 @@ Before running the service, ensure you have the following installed and configur
 - A compatible .NET SDK
 - A supported relational database
 - RabbitMQ, if message publishing is enabled in the application configuration
-
+<br/>
 
 
 ### ⚙️ Configuration
@@ -127,7 +128,7 @@ Review the configuration in:
 
 > 🔐 **Security note:** Avoid committing credentials, passwords, or other secrets to the repository.
 
-
+<br/>
 ### ▶️ Run the Application
 
 From the repository root, restore dependencies and build the solution:
