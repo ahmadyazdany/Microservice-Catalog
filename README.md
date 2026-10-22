@@ -4,6 +4,8 @@ A microservice for managing product catalog data in an e-commerce platform, incl
 
 The Catalog Service exposes RESTful APIs for managing catalog information and communicates with other microservices through **RabbitMQ**. When relevant product data changes, the service publishes messages to the message broker, allowing downstream services, such as the Search Service, to react to those changes asynchronously.
 
+
+
 ## ✨ Features
 
 - 📦 **Product Management:** Create and search products, update prices and stock, and manage product media.
@@ -15,11 +17,15 @@ The Catalog Service exposes RESTful APIs for managing catalog information and co
 - 🛡️ **Domain Rules:** Enforce business constraints, including valid product prices and non-negative stock quantities.
 - 🧪 **Unit Testing:** Test application handlers across product, brand, and category operations.
 
+
+
 ## 📚 API Documentation
 
 The service provides interactive API documentation through Swagger UI, allowing developers to explore endpoints and test requests.
 
 ![Swagger UI - Catalog Service API](docs/images/swagger-api.png)
+
+
 
 ## 🏗️ Architecture and Workflow
 
@@ -32,6 +38,7 @@ When a product update request is received, the service processes the operation, 
 ![Product Update Workflow - API, Database, and RabbitMQ](docs/images/diagram.png)
 
 This asynchronous communication helps decouple the Catalog Service from downstream consumers. For example, the Search Service can consume product change events to keep its search index synchronized with the catalog.
+
 
 ## 🗃️ Project Structure
 
@@ -74,6 +81,7 @@ tests/
             └── ProductHandlers/
 ```
 
+
 ### 🧩 Project Responsibilities
 
 | Project | Responsibility |
@@ -93,6 +101,9 @@ tests/
 - 📖 Swagger / OpenAPI
 - 🧪 Unit Testing
 
+
+-------------------
+
 ## 🚀 Getting Started
 
 ### ✅ Prerequisites
@@ -102,6 +113,8 @@ Before running the service, ensure you have the following installed and configur
 - A compatible .NET SDK
 - A supported relational database
 - RabbitMQ, if message publishing is enabled in the application configuration
+
+
 
 ### ⚙️ Configuration
 
@@ -113,6 +126,7 @@ Review the configuration in:
 - `src/WebApi/appsettings.Development.json`
 
 > 🔐 **Security note:** Avoid committing credentials, passwords, or other secrets to the repository.
+
 
 ### ▶️ Run the Application
 
@@ -131,14 +145,3 @@ dotnet run --project src/WebApi/WebApi.csproj
 
 Once the application is running, open the Swagger UI endpoint configured for the application to explore the available API operations.
 
-### 🧪 Run Tests
-
-Execute the unit test suite with:
-
-```bash
-dotnet test Catalog.sln
-```
-
-## 📄 License
-
-See the [LICENSE](LICENSE) file for licensing information.
